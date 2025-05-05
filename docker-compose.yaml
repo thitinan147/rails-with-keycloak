@@ -15,6 +15,10 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    extra_hosts:
+      - "localhost:host-gateway"
+    environment:
+      KEYCLOAK_HOST: keycloak
 
   keycloak:
     image: quay.io/keycloak/keycloak
@@ -26,6 +30,11 @@ services:
       KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_BOOTSTRAP_ADMIN_PASSWORD}
     ports:
       - "8080:8080"
+    extra_hosts:
+      - "localhost:host-gateway"
+    volumes:
+      - keycloak_data:/opt/keycloak/data
 
 volumes:
   pg_data:
+  keycloak_data:

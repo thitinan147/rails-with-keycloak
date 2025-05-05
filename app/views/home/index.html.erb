@@ -1,0 +1,71 @@
+
+<% if session[:user_data].present? %>
+  <div class="user-info">
+    <h2>ข้อมูลผู้ใช้</h2>
+    <div class="user-profile">
+      <%# แสดงรายละเอียดทั้งหมดของ userinfo %>
+      <h3>User Information</h3>
+      <pre class="json-data"><%= JSON.pretty_generate(session[:user_data]) %></pre>
+      
+      <table class="user-data">
+        <tr>
+          <th>Key</th>
+          <th>value</th>
+        </tr>
+        <% session[:user_data].each do |key, value| %>
+          <tr>
+            <th><%= key %></th>
+            <td>
+              <% if value.is_a?(Array) %>
+                <%= value.join(", ") %>
+              <% elsif value.is_a?(Hash) %>
+                <pre><%= JSON.pretty_generate(value) %></pre>
+              <% else %>
+                <%= value %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    
+    <%= link_to "Logout", logout_path, class: "button" %>
+  </div>
+<% else %>
+  <%= link_to "Login with Keycloak", login_path, class: "button" %>
+<% end %>
+
+<style>
+  .user-info { 
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  .user-data {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  .user-data th, .user-data td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  .json-data {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 4px;
+    overflow: auto;
+    font-family: monospace;
+  }
+  .button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+</style>
