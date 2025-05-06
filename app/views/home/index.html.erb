@@ -1,18 +1,18 @@
 
-<% if session[:user_data].present? %>
+<% if session[:user_info].present? %>
   <div class="user-info">
     <h2>ข้อมูลผู้ใช้</h2>
     <div class="user-profile">
       <%# แสดงรายละเอียดทั้งหมดของ userinfo %>
       <h3>User Information</h3>
-      <pre class="json-data"><%= JSON.pretty_generate(session[:user_data]) %></pre>
+      <pre class="json-data"><%= JSON.pretty_generate(session[:user_info]) %></pre>
       
       <table class="user-data">
         <tr>
           <th>Key</th>
           <th>value</th>
         </tr>
-        <% session[:user_data].each do |key, value| %>
+        <% session[:user_info].each do |key, value| %>
           <tr>
             <th><%= key %></th>
             <td>
