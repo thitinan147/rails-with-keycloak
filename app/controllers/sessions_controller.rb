@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     
     user_info = @keycloak_service.get_user_info(access_token)
     
-    session[:refresh_token] = 
+    session[:refresh_token] = refresh_token
     session[:user_info] = user_info
 
     redirect_to root_path
