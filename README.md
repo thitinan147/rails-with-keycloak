@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ทำขึ้นมาเพื่อ bypass ไปยัง keycloak คล้ายๆมี template ในการต่อ keycloak
 
-Things you may want to cover:
+1. clone repo
 
-* Ruby version
+2. switch branch to login-with-keycloak-without-using-gem
 
-* System dependencies
+3. docker-compose up ถ้าไม่ใช้แล้ว docker-compose down
 
-* Configuration
+4. ไปที่ http://localhost:8080
 
-* Database creation
+  - create realm
+  - create client
+  - Root URL: http://localhost:3000
+  - Valid post logout redirect URLs: http://localhost:3000/auth/callback
 
-* Database initialization
+5. ไปแก้ไข code 
+  - sessions_controller.rb:
+    - myrealm => ชื่อ realm ที่สร้างเอง
+    - myclient => ชื่อ client ที่สร้างเอง
+      
+  - keycloak_service.rb
+    - client_secret: "hQ5xv4TPvqeeht4K4e2zyxv40hNJ8dmb" เป็น client_secret: "จาก Credentials -> Client Secret"
 
-* How to run the test suite
+6. ไปที่ http://localhost:3000
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
