@@ -12,8 +12,13 @@
 
   - create realm
   - create client
+  - client authentication: on
+  - Authorization: on
   - Root URL: http://localhost:3000
   - Valid post logout redirect URLs: http://localhost:3000/auth/callback
+  - create uesr 
+    - username:
+    - credentials -> set password 
 
 5. ไปแก้ไข code 
   - sessions_controller.rb:
@@ -24,4 +29,7 @@
     - client_secret: "hQ5xv4TPvqeeht4K4e2zyxv40hNJ8dmb" เป็น client_secret: "จาก Credentials -> Client Secret"
 
 6. ไปที่ http://localhost:3000
+
+ใครอยากศึกษาต่อ
+  การต่อ keycloak แกะ code ได้เลย
 
