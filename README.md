@@ -30,8 +30,8 @@
 
 6. ไปที่ http://localhost:3000
   - login
-      username:
-      password:
+      - username:
+      - password:
   - logout
 
 เสร็จแล้วจ้า
