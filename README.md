@@ -1,6 +1,6 @@
 # README
 
-ทำขึ้นมาเพื่อ bypass ไปยัง keycloak คล้ายๆมี template ในการต่อ keycloak
+ทำขึ้นมาเพื่อ bypass ไปยัง keycloak คล้ายๆมี template ในการต่อ keycloak ให้ 
 
 1. clone repo: https://github.com/thitinan147/rails-with-keycloak.git
 
