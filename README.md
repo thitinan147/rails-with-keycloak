@@ -2,7 +2,7 @@
 
 ทำขึ้นมาเพื่อ bypass ไปยัง keycloak คล้ายๆมี template ในการต่อ keycloak
 
-1. clone repo
+1. clone repo: https://github.com/thitinan147/rails-with-keycloak.git
 
 2. switch branch to login-with-keycloak-without-using-gem
   - git switch login-with-keycloak-without-using-gem
@@ -10,7 +10,6 @@
 4. docker-compose up ถ้าไม่ใช้แล้ว docker-compose down
 
 5. ไปที่ http://localhost:8080
-
   - create realm
   - create client
   - client authentication: on
