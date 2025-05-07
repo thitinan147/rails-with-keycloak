@@ -29,6 +29,12 @@
     - client_secret: "hQ5xv4TPvqeeht4K4e2zyxv40hNJ8dmb" เป็น client_secret: "จาก Credentials -> Client Secret"
 
 6. ไปที่ http://localhost:3000
+  - login
+      username:
+      password:
+  - logout
+
+เสร็จแล้วจ้า
 
 ใครอยากศึกษาต่อ
   การต่อ keycloak แกะ code ได้เลย
