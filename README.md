@@ -32,9 +32,12 @@ branch main เอาไว้ทำ TDD
 
 5. ไปแก้ไข code ที่ clone ลงมาในเครื่อง
   - sessions_controller.rb:
-    - myrealm => ชื่อ realm ที่สร้างเอง
-    - myclient => ชื่อ client ที่สร้างเอง
-      
+  - เปลี่ยนจาก myrealm => ชื่อ realm ที่สร้างเองเอง
+  - <img width="491" alt="image" src="https://github.com/user-attachments/assets/8e0bd1ee-d12b-4005-a5e4-03d2a8322000" />
+  
+  - เปลี่ยนจาก myclient => ชื่อ client ที่สร้างเอง
+  - <img width="757" alt="image" src="https://github.com/user-attachments/assets/8c284021-7a39-45cd-887b-fda3646bfed5" />
+
   - keycloak_service.rb
     - client_secret: "hQ5xv4TPvqeeht4K4e2zyxv40hNJ8dmb" เป็น client_secret: "จาก Credentials -> Client Secret"
 
