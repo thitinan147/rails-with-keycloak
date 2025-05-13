@@ -11,7 +11,7 @@ class KeycloakService < ApplicationRecord
         code: code,
         redirect_uri: "http://localhost:3000/auth/callback",
         client_id: "myclient",
-        client_secret: "hQ5xv4TPvqeeht4K4e2zyxv40hNJ8dmb",
+        client_secret: "G0H9Yz2N6xjlP4prbs1CqPkc0wOPw2Y7",
         })
         
         JSON.parse(response.body)
@@ -35,7 +35,7 @@ class KeycloakService < ApplicationRecord
         logout_request = Net::HTTP::Post.new(logout_uri)
         logout_request.set_form_data(
         "client_id" => "myclient",
-        "client_secret" => "hQ5xv4TPvqeeht4K4e2zyxv40hNJ8dmb",
+        "client_secret" => "G0H9Yz2N6xjlP4prbs1CqPkc0wOPw2Y7",
         "refresh_token" => refresh_token,
         )
 
