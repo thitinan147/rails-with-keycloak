@@ -12,7 +12,7 @@ branch main เอาไว้ทำ TDD
 3. docker-compose up ถ้าไม่ใช้แล้ว docker-compose down
 
 4. ไปที่ http://localhost:8080
-  - create realm
+  - Manage realm -> Create realm -> Realm name: ชื่อ realm ex. myrealm
   - create client
   - client authentication: on
   - Authorization: on
