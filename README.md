@@ -12,17 +12,25 @@ branch main เอาไว้ทำ TDD
 3. docker-compose up ถ้าไม่ใช้แล้ว docker-compose down
 
 4. ไปที่ http://localhost:8080
-  - Manage realm -> Create realm -> Realm name: ชื่อ realm ex. myrealm
-  - create client
-  - client authentication: on
-  - Authorization: on
-  - Root URL: http://localhost:3000
-  - Valid post logout redirect URLs: http://localhost:3000/auth/callback
-  - create uesr 
-    - username:
-    - credentials -> set password 
+  - Manage realm -> Create realm -> Realm name: ชื่อ realm (ex. myrealm)
+  - <img width="1168" alt="image" src="https://github.com/user-attachments/assets/58178e45-80ad-4b1d-b9c2-995e4d1d31f4" />
 
-5. ไปแก้ไข code 
+  - Client -> Create client
+  - <img width="829" alt="image" src="https://github.com/user-attachments/assets/233b452e-bc9b-4aec-8a60-cfe5dd3fee62" />
+
+  - client authentication: on, Authorization: on
+  - <img width="898" alt="image" src="https://github.com/user-attachments/assets/5b295793-21fa-499e-8308-1199d7761d14" />
+
+  - Root URL: http://localhost:3000, Valid post logout redirect URLs: http://localhost:3000/auth/callback
+  - <img width="767" alt="image" src="https://github.com/user-attachments/assets/d9f6ce56-037b-4238-8a50-dc1993be8b24" />
+
+  - Users -> Add user
+  - <img width="1105" alt="image" src="https://github.com/user-attachments/assets/f2d6d313-d349-491f-a118-9092e2714796" />
+
+  - Credentials -> set password
+  - <img width="1069" alt="image" src="https://github.com/user-attachments/assets/6e2edead-c202-400c-ae16-6af3e5ea5c7f" />
+
+5. ไปแก้ไข code ที่ clone ลงมาในเครื่อง
   - sessions_controller.rb:
     - myrealm => ชื่อ realm ที่สร้างเอง
     - myclient => ชื่อ client ที่สร้างเอง
