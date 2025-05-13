@@ -13,22 +13,22 @@ branch main เอาไว้ทำ TDD
 
 4. ไปที่ http://localhost:8080
   - Manage realm -> Create realm -> Realm name: ชื่อ realm (ex. myrealm)
-  - <img width="1186" alt="image" src="https://github.com/user-attachments/assets/be89d430-321b-4fa9-944c-6da11df7247b" />
+  <img width="1186" alt="image" src="https://github.com/user-attachments/assets/be89d430-321b-4fa9-944c-6da11df7247b" />
 
   - Client -> Create client
-  - <img width="829" alt="image" src="https://github.com/user-attachments/assets/233b452e-bc9b-4aec-8a60-cfe5dd3fee62" />
+  <img width="829" alt="image" src="https://github.com/user-attachments/assets/233b452e-bc9b-4aec-8a60-cfe5dd3fee62" />
 
   - client authentication: on, Authorization: on
-  - <img width="898" alt="image" src="https://github.com/user-attachments/assets/5b295793-21fa-499e-8308-1199d7761d14" />
+  <img width="898" alt="image" src="https://github.com/user-attachments/assets/5b295793-21fa-499e-8308-1199d7761d14" />
 
   - Root URL: http://localhost:3000, Valid post logout redirect URLs: http://localhost:3000/auth/callback
-  - <img width="767" alt="image" src="https://github.com/user-attachments/assets/d9f6ce56-037b-4238-8a50-dc1993be8b24" />
+  <img width="767" alt="image" src="https://github.com/user-attachments/assets/d9f6ce56-037b-4238-8a50-dc1993be8b24" />
 
   - Users -> Add user
-  - <img width="1105" alt="image" src="https://github.com/user-attachments/assets/f2d6d313-d349-491f-a118-9092e2714796" />
+  <img width="1105" alt="image" src="https://github.com/user-attachments/assets/f2d6d313-d349-491f-a118-9092e2714796" />
 
   - Credentials -> set password
-  - <img width="1069" alt="image" src="https://github.com/user-attachments/assets/6e2edead-c202-400c-ae16-6af3e5ea5c7f" />
+  <img width="1069" alt="image" src="https://github.com/user-attachments/assets/6e2edead-c202-400c-ae16-6af3e5ea5c7f" />
 
 5. ไปแก้ไข code ที่ clone ลงมาในเครื่อง
   - sessions_controller.rb:
