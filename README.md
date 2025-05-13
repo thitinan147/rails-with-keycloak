@@ -13,7 +13,7 @@ branch main เอาไว้ทำ TDD
 
 4. ไปที่ http://localhost:8080
   - Manage realm -> Create realm -> Realm name: ชื่อ realm (ex. myrealm)
-  - <img width="1168" alt="image" src="https://github.com/user-attachments/assets/58178e45-80ad-4b1d-b9c2-995e4d1d31f4" />
+  - <img width="1186" alt="image" src="https://github.com/user-attachments/assets/be89d430-321b-4fa9-944c-6da11df7247b" />
 
   - Client -> Create client
   - <img width="829" alt="image" src="https://github.com/user-attachments/assets/233b452e-bc9b-4aec-8a60-cfe5dd3fee62" />
