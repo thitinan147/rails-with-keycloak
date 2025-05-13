@@ -1,77 +1,106 @@
-# README
+# 🔐 Rails + Keycloak Authentication (No Gem)
 
-branch main เอาไว้ทำ TDD
+โปรเจกต์นี้สร้างขึ้นเพื่อใช้ Keycloak ทำระบบ Login ใน Rails แบบไม่ใช้ Gem โดยมีตัวอย่าง Template และสามารถศึกษาโค้ดเพื่อใช้งานต่อได้ทันที
 
-ทำขึ้นมาเพื่อ bypass ไปยัง Keycloak คล้ายๆ มี template ในการเชื่อมต่อ Keycloak ให้
+> 🧪 Branch `main` เอาไว้ทำ TDD  
+> ✅ Branch ที่ใช้ Keycloak: `login-with-keycloak-without-using-gem`
 
-1. clone repo: https://github.com/thitinan147/rails-with-keycloak.git
+---
 
-2. switch branch ไปที่ login-with-keycloak-without-using-gem
-   - git switch login-with-keycloak-without-using-gem
+## 🚀 เริ่มต้นใช้งาน
 
-3. รันด้วย docker-compose
-   - docker-compose up  
-   - ถ้าเลิกใช้งานแล้ว ให้รัน docker-compose down
+### 1. Clone โปรเจกต์
 
-4. เปิด http://localhost:8080 แล้วตั้งค่า Keycloak ดังนี้
+```bash
+git clone https://github.com/thitinan147/rails-with-keycloak.git
+cd rails-with-keycloak
+2. เปลี่ยนไปที่ Branch สำหรับ Keycloak
+bash
+Copy
+Edit
+git switch login-with-keycloak-without-using-gem
+3. รันด้วย Docker
+bash
+Copy
+Edit
+docker-compose up
+เมื่อเลิกใช้งาน:
 
-   - Manage realm → Create realm → Realm name: ตั้งชื่อ realm (เช่น myrealm)  
-     <img width="1186" alt="image" src="https://github.com/user-attachments/assets/be89d430-321b-4fa9-944c-6da11df7247b" />
+bash
+Copy
+Edit
+docker-compose down
+⚙️ ตั้งค่า Keycloak
+เปิดเบราว์เซอร์ที่ http://localhost:8080 แล้วทำตามขั้นตอนนี้:
 
-   - ไปที่ Clients → Create client  
-     <img width="829" alt="image" src="https://github.com/user-attachments/assets/233b452e-bc9b-4aec-8a60-cfe5dd3fee62" />
+▶️ สร้าง Realm ใหม่
+เข้าไปที่ Manage realm → Create realm
 
-   - เปิด client authentication: on, เปิด Authorization: on  
-     <img width="898" alt="image" src="https://github.com/user-attachments/assets/5b295793-21fa-499e-8308-1199d7761d14" />
+ตั้งชื่อ (เช่น: myrealm)
 
-   - ตั้งค่า:
-     - Root URL: http://localhost:3000  
-     - Valid post logout redirect URLs: http://localhost:3000/auth/callback  
-     <img width="767" alt="image" src="https://github.com/user-attachments/assets/d9f6ce56-037b-4238-8a50-dc1993be8b24" />
+<img width="1186" alt="image" src="https://github.com/user-attachments/assets/be89d430-321b-4fa9-944c-6da11df7247b" />
+▶️ สร้าง Client ใหม่
+เข้าเมนู Clients → Create client
 
-   - Users → Add user  
-     <img width="1105" alt="image" src="https://github.com/user-attachments/assets/f2d6d313-d349-491f-a118-9092e2714796" />
+<img width="829" alt="image" src="https://github.com/user-attachments/assets/233b452e-bc9b-4aec-8a60-cfe5dd3fee62" />
+เปิด Client authentication และ Authorization ให้เป็น ON
 
-   - ไปที่ Credentials → ตั้งรหัสผ่าน → ปิด Temporary เป็น off  
-     <img width="1069" alt="image" src="https://github.com/user-attachments/assets/6e2edead-c202-400c-ae16-6af3e5ea5c7f" />
+<img width="898" alt="image" src="https://github.com/user-attachments/assets/5b295793-21fa-499e-8308-1199d7761d14" />
+กำหนดค่าดังนี้:
 
-5. แก้ไขโค้ดในโปรเจกต์ที่ clone มาให้ตรงกับ realm/client ที่สร้างไว้
+Root URL: http://localhost:3000
 
-   macOS:
-   - คำสั่ง Command + P = ค้นหาไฟล์
-   - คำสั่ง Command + F = ค้นหาข้อความในไฟล์
+Valid Post Logout Redirect URLs: http://localhost:3000/auth/callback
 
-   - sessions_controller.rb:
-     - เปลี่ยนจาก myrealm → เป็นชื่อ realm ของคุณ  
-       <img width="491" alt="image" src="https://github.com/user-attachments/assets/8e0bd1ee-d12b-4005-a5e4-03d2a8322000" />
+<img width="767" alt="image" src="https://github.com/user-attachments/assets/d9f6ce56-037b-4238-8a50-dc1993be8b24" />
+▶️ สร้าง User
+เข้าเมนู Users → Add user
 
-     - เปลี่ยนจาก myclient → เป็นชื่อ client ของคุณ  
-       <img width="757" alt="image" src="https://github.com/user-attachments/assets/8c284021-7a39-45cd-887b-fda3646bfed5" />
+<img width="1105" alt="image" src="https://github.com/user-attachments/assets/f2d6d313-d349-491f-a118-9092e2714796" />
+ไปที่ Credentials → ตั้งรหัสผ่าน และปิด Temporary (เปลี่ยนเป็น OFF)
 
-   - keycloak_service.rb:
-     - เปลี่ยนจาก myrealm → เป็นชื่อ realm ของคุณ  
-       <img width="816" alt="image" src="https://github.com/user-attachments/assets/933a2c0f-52e9-4fb1-9343-fb55a49cfe02" />
+<img width="1069" alt="image" src="https://github.com/user-attachments/assets/6e2edead-c202-400c-ae16-6af3e5ea5c7f" />
+🛠 แก้ไขโค้ดให้ตรงกับ Realm / Client ที่ตั้งไว้
+เปิดโปรเจกต์ใน Editor ที่ชอบ เช่น VSCode
+(กด ⌘ + P เพื่อค้นหาไฟล์, ⌘ + F เพื่อค้นหาข้อความ)
 
-     - เปลี่ยนจาก myclient → เป็นชื่อ client ของคุณ  
-       <img width="770" alt="image" src="https://github.com/user-attachments/assets/6567c677-f73d-41f3-a4ca-b17aca634564" />
+📁 sessions_controller.rb
+แก้ชื่อ Realm จาก myrealm → ชื่อ Realm ของคุณ
 
-     - เปลี่ยน client_secret → เป็น client_secret ของ client นั้น (ดูใน Keycloak Admin)  
-       <img width="1440" alt="image" src="https://github.com/user-attachments/assets/8456600e-086c-44e5-88b6-ca7c0867eed6" />
-       <img width="686" alt="image" src="https://github.com/user-attachments/assets/1b3620f6-fd83-4d7d-b4cb-005e27b0b1dd" />
+<img width="491" alt="image" src="https://github.com/user-attachments/assets/8e0bd1ee-d12b-4005-a5e4-03d2a8322000" />
+แก้ชื่อ Client จาก myclient → ชื่อ Client ของคุณ
 
-6. เปิด http://localhost:3000 เพื่อใช้งาน
+<img width="757" alt="image" src="https://github.com/user-attachments/assets/8c284021-7a39-45cd-887b-fda3646bfed5" />
+📁 keycloak_service.rb
+เปลี่ยน myrealm → ชื่อ Realm ที่ตั้งไว้
 
-   - login:  
-     กรอก username/password ของ user ที่สร้างไว้ใน Keycloak  
-     <img width="649" alt="image" src="https://github.com/user-attachments/assets/048ae0e0-c4f9-4aa1-a4dd-f84c0cf42823" />
+<img width="816" alt="image" src="https://github.com/user-attachments/assets/933a2c0f-52e9-4fb1-9343-fb55a49cfe02" />
+เปลี่ยน myclient → ชื่อ Client
 
-     เมื่อ login สำเร็จ จะเห็นหน้าตาเว็บแบบนี้  
-     <img width="782" alt="image" src="https://github.com/user-attachments/assets/0412138d-1462-42af-82da-503b3e34a9dc" />
+<img width="770" alt="image" src="https://github.com/user-attachments/assets/6567c677-f73d-41f3-a4ca-b17aca634564" />
+กรอก client_secret จาก Keycloak → Admin Console → Credentials
 
-   - logout:  
-     กด Logout เพื่อออกจากระบบ
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/8456600e-086c-44e5-88b6-ca7c0867eed6" /> <img width="686" alt="image" src="https://github.com/user-attachments/assets/1b3620f6-fd83-4d7d-b4cb-005e27b0b1dd" />
+🌐 ทดสอบระบบ Login
+เปิดเบราว์เซอร์: http://localhost:3000
 
-เสร็จแล้วจ้า 🎉
+🔑 Login
+กดปุ่ม Login
 
-ใครอยากศึกษาต่อ
-- การต่อ Keycloak เพิ่มเติมสามารถแกะดูโค้ดได้เลย
+กรอก username และ password จาก Keycloak ที่สร้างไว้
+
+<img width="649" alt="image" src="https://github.com/user-attachments/assets/048ae0e0-c4f9-4aa1-a4dd-f84c0cf42823" />
+✅ Login สำเร็จ
+หน้าเว็บจะเปลี่ยนเป็นแบบนี้
+
+<img width="782" alt="image" src="https://github.com/user-attachments/assets/0412138d-1462-42af-82da-503b3e34a9dc" />
+🔓 Logout
+คลิกปุ่ม Logout เพื่อออกจากระบบ
+
+📚 แนะนำเพิ่มเติม
+ผู้ที่สนใจสามารถศึกษาโค้ดทั้งหมดต่อได้เลย โครงสร้างง่าย ไม่มี Gem แฝง
+
+ต่อ Keycloak เองได้อย่างชัดเจน เหมาะกับการใช้งานจริง
+
+ขอบคุณที่ใช้งาน 🙏
+หากโปรเจกต์นี้มีประโยชน์ อย่าลืม ⭐️ ให้กำลังใจกันนะครับ
