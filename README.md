@@ -6,7 +6,8 @@ This repository demonstrates a Rails application integrated with Keycloak authen
 
 The integration follows the OAuth 2.0 Authorization Code flow:
 
-![Keycloak Authentication Flow](https://github.com/user-attachments/assets/IMAGE_ID_PLACEHOLDER)
+<img width="588" alt="image" src="https://github.com/user-attachments/assets/6ce46523-a82a-40f5-a636-efc5be9371c3" />
+
 
 1. User requests a protected resource from your Rails app
 2. App redirects the user to Keycloak for authentication
