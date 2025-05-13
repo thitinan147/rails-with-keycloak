@@ -14,6 +14,7 @@
 ```bash
 git clone https://github.com/thitinan147/rails-with-keycloak.git
 cd rails-with-keycloak
+```bash
 2. เปลี่ยนไปที่ Branch สำหรับ Keycloak
 bash
 Copy
