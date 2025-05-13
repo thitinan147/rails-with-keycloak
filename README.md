@@ -2,6 +2,24 @@
 
 This repository demonstrates a Rails application integrated with Keycloak authentication without using specialized gems. It provides a template for connecting your Rails application directly with Keycloak's authentication services.
 
+## Authentication Flow
+
+The integration follows the OAuth 2.0 Authorization Code flow:
+
+![Keycloak Authentication Flow](https://github.com/user-attachments/assets/IMAGE_ID_PLACEHOLDER)
+
+1. User requests a protected resource from your Rails app
+2. App redirects the user to Keycloak for authentication
+3. User is presented with Keycloak login page
+4. User submits login credentials to Keycloak
+5. Keycloak redirects back to your app with an authorization code
+6. Your Rails app exchanges the code for access and ID tokens
+7. App uses these tokens to authenticate the user
+
+## References
+- [Keycloak Official Website](https://www.keycloak.org/)
+- [Keycloak and Authorization Code Flow](https://embriq.no/en/news/keycloak-and-authorization-code-flow/)
+
 ## Getting Started
 
 ### Prerequisites
@@ -131,3 +149,7 @@ For deeper integration or customization, you can explore the codebase to underst
 ## Notes
 
 The main branch contains a TDD (Test-Driven Development) approach, while this branch (`login-with-keycloak-without-using-gem`) focuses on a direct integration with Keycloak without relying on specialized gems.
+
+## Acknowledgments
+
+Special thanks to [Claude.ai](https://claude.ai) for assistance with creating this README documentation.
