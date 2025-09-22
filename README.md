@@ -36,13 +36,7 @@ The integration follows the OAuth 2.0 Authorization Code flow:
    git clone https://github.com/thitinan147/rails-with-keycloak.git
    ```
 
-2. Switch to the integration branch:
-   ```bash
-   cd rails-with-keycloak
-   git switch login-with-keycloak-without-using-gem
-   ```
-
-3. Start the application and Keycloak:
+2. Start the application and Keycloak:
    ```bash
    docker-compose up
    ```
